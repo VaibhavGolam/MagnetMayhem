@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#05060f">
+<title>Magnet Mayhem</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<canvas id="c"></canvas>
+
+<!-- In-game HUD (pointer-events none so touches reach the canvas) -->
+<div id="hud" class="hidden">
+  <div class="hud-row">
+    <div class="hud-box left"><span class="lbl">SCORE</span><span id="hScore">0</span></div>
+    <div class="hud-box mid"><span id="hCombo" class="combo">COMBO ×1</span></div>
+    <div class="hud-box right"><span class="lbl">BEST</span><span id="hBest">0</span></div>
+  </div>
+  <div id="energy"><div id="energyFill"></div></div>
+  <div id="chips"></div>
+  <div id="banner"></div>
+  <div id="tutText"></div>
+  <div id="tutHint"></div>
+  <div id="zones">
+    <div id="zL" class="zone atk"><span>ATTRACT</span></div>
+    <div id="zR" class="zone rep"><span>REPEL</span></div>
+  </div>
+</div>
+<button id="tutSkip" class="small-btn hidden">SKIP</button>
+<div id="toast"></div>
+
+<!-- Main menu -->
+<section id="menu" class="panel">
+  <div class="logo-wrap">
+    <h1>MAGNET<br><span>MAYHEM</span></h1>
+    <p class="tag">You don't control the ball.<br>You control the forces around it.</p>
+  </div>
+  <div class="stack">
+    <div class="best-line">BEST SCORE <b id="mBest">0</b></div>
+    <button id="bPlay" class="btn big">PLAY</button>
+    <button id="bDaily" class="btn daily">DAILY CHALLENGE <small id="dailyInfo"></small></button>
+    <div class="row">
+      <button id="bSkins" class="btn">SKINS</button>
+      <button id="bLeader" class="btn">LEADERBOARD</button>
+    </div>
+    <button id="bSettings" class="btn ghost">SETTINGS</button>
+  </div>
+</section>
+
+<!-- Game over -->
+<section id="over" class="panel hidden">
+  <h2 class="small-title">MAGNET MAYHEM</h2>
+  <div id="oReason" class="reason"></div>
+  <div class="score-card">
+    <div class="lbl">SCORE</div>
+    <div id="oScore" class="big-num">0</div>
+    <div id="oNew" class="newrec hidden">NEW RECORD!</div>
+    <div class="best-line">BEST <b id="oBest">0</b></div>
+    <div id="oDaily" class="best-line hidden"></div>
+  </div>
+  <div class="stack">
+    <button id="bAgain" class="btn big">PLAY AGAIN</button>
+    <button id="bRevive" class="btn revive hidden">REVIVE (WATCH AD)</button>
+    <button id="bOverMenu" class="btn ghost">MENU</button>
+  </div>
+</section>
+
+<!-- Pause -->
+<section id="pause" class="panel hidden">
+  <h2>PAUSED</h2>
+  <div class="stack">
+    <button id="bResume" class="btn big">RESUME</button>
+    <button id="bPauseMenu" class="btn ghost">QUIT TO MENU</button>
+  </div>
+</section>
+
+<!-- Skins -->
+<section id="skins" class="panel hidden">
+  <h2>SKINS</h2>
+  <div id="skinGrid" class="grid"></div>
+  <button class="btn ghost back" data-back>BACK</button>
+</section>
+
+<!-- Leaderboard + achievements -->
+<section id="leader" class="panel hidden scroll">
+  <h2>LEADERBOARD</h2>
+  <div class="card">
+    <h3>DAILY MAGNET CHALLENGE</h3>
+    <div class="best-line">Your best today <b id="lDaily">0</b></div>
+    <div class="best-line">Global rank <b>#—</b></div>
+    <p class="note">Online ranking arrives with Google Play Games. Until then scores are saved on this device.</p>
+  </div>
+  <div class="card">
+    <h3>TOP 10 ON THIS DEVICE</h3>
+    <ol id="topList"></ol>
+  </div>
+  <div class="card">
+    <h3>ACHIEVEMENTS</h3>
+    <ul id="achList"></ul>
+  </div>
+  <button class="btn ghost back" data-back>BACK</button>
+</section>
+
+<!-- Settings -->
+<section id="settings" class="panel hidden">
+  <h2>SETTINGS</h2>
+  <div class="stack">
+    <button id="tSnd" class="btn toggle"></button>
+    <button id="tMus" class="btn toggle"></button>
+    <button id="tVib" class="btn toggle"></button>
+    <button id="bTut" class="btn">REPLAY TUTORIAL</button>
+  </div>
+  <button class="btn ghost back" data-back>BACK</button>
+</section>
+
+<script src="js/storage.js"></script>
+<script src="js/audio.js"></script>
+<script src="js/ads.js"></script>
+<script src="js/game.js"></script>
+</body>
+</html>

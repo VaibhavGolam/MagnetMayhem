@@ -1,0 +1,13 @@
+{
+  "appId": "com.golamlab.magnetmayhem",
+  "appName": "Magnet Mayhem",
+  "webDir": "www",
+  "backgroundColor": "#05060f",
+  "server": {
+    "androidScheme": "https"
+  },
+  "android": {
+    "backgroundColor": "#05060f",
+    "allowMixedContent": false
+  }
+}
